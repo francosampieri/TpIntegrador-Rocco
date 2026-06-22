@@ -12,7 +12,7 @@ public class JuegoMayorMenor {
 
     public void iniciarPartida() {
 
-        System.out.println("Ingrese su nombre:");
+        System.out.print("Ingrese su nombre: ");
         String nombre = scanner.nextLine();
 
         jugador = new Jugador(nombre);
@@ -28,17 +28,14 @@ public class JuegoMayorMenor {
         while (baraja.cantCartasDisponibles() > 0) {
 
             System.out.println("\nComo sera la siguiente carta");
-            System.out.println("1 - Mayor");
-            System.out.println("2 - Menor");
+            System.out.println("[1] - Mayor");
+            System.out.println("[2] - Menor");
 
-            int opcion;
-
-            do {
-                opcion = scanner.nextInt();
-            } while (opcion != 1 && opcion != 2);
+            int opcion = Consola.pedirEnteroRango(scanner, 1, 2, "Ingrese una opcion [1] o [2]: ");
 
             Carta siguienteCarta = baraja.repartirUnaCarta();
-
+            
+            System.out.println();
             System.out.println("Siguiente carta: " + siguienteCarta);
 
             boolean acerto = false;
@@ -71,4 +68,5 @@ public class JuegoMayorMenor {
         System.out.println("Puntaje final: " + jugador.getPuntaje());
         System.out.println("====================");
     }
+    
 }
