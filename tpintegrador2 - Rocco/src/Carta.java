@@ -37,6 +37,4 @@ public class Carta {
         return numero + " de " + pinta;
     }  
     
-    
-    
 }
